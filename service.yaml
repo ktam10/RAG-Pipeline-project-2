@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+    name: rag-pipeline
+spec:
+    type: LoadBalancer
+    selector: 
+        app: rag-pipeline
+    ports:
+        - protocol: TCP
+          port: 80
+          targetPort: 8000

@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: rag-pipeline
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            app: rag-pipeline
+    template:
+        metadata:
+            labels:
+                app: rag-pipeline
+        spec:
+            containers:
+                - name: rag-pipeline
+                  image: 316412036948.dkr.ecr.us-east-2.amazonaws.com/rag-pipeline-repo:rag-latest
+                  ports:
+                    - containerPort: 8000
+                  resources:
+                    requests:
+                        memory: "1Gi"
+                        cpu: "500m"
+                    limits:
+                        memory: "2Gi"
+                        cpu: "1000m"
