@@ -11,3 +11,4 @@ python-multipart
 mlflow
 boto3
 langchain-huggingface
+prometheus-fastapi-instrumentator

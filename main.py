@@ -3,6 +3,7 @@ import shutil
 import mlflow
 import mlflow.pyfunc
 import time
+from prometheus_fastapi_instrumentator import Instrumentator
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI, UploadFile, File, HTTPException
@@ -106,6 +107,7 @@ app = FastAPI(
     version="1.0.0"
 )
 
+Instrumentator().instrument(app).expose(app)
 
 # ─── Health check ────────────────────────────────────────────────
 @app.get("/health")
